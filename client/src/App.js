@@ -18,9 +18,9 @@ import Posts from './components/Posts/Posts';
 [X] As someone opens our website we want them to see a list of questions that have been asked.
 [X]  - should be clickable
 [X]  - if clicked sends to a new route where they can interact with the post. 
-[]  Upload to git hub
-[]    - add a .env file
-[]    - init git localy and push remotly 
+[x]  Upload to git hub
+[x]    - add a .env file
+[x]    - init git localy and push remotly 
 []  Complete form
 []    - make sure the form is saved onto redux store
 []    - make sure the from is saved onto a database 

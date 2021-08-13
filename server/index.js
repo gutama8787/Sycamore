@@ -16,6 +16,10 @@ import mongoose from 'mongoose';
 // cros origin connection 
 import cors from 'cors';
 
+import postRoutes from './routes/posts.js'
+
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 
@@ -29,21 +33,17 @@ app.use(cors());
 // Establish routing.
 // TDD
 
+
+
+
 const CONNECTION_URL = process.env.CONNECTION_URL
 
 const PORT = process.env.PORT || 5000;
 
-// app.get('/',(req,res)=>{
-//     console.log(req)
-//     res.send('hello there')
-// })
+app.use('/posts',postRoutes)
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-//   })
-
-app.get('/',  (req, res) => {
-    res.send('GET request to the homepage')
+app.get('/',(req,res)=> {
+    res.send('HELLO WELCOME TO THE BACKEND')
 })
 
 // use mongoose to connect to our database

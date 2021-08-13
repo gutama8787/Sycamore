@@ -5,7 +5,8 @@
 import express from 'express';
 import mongoose  from 'mongoose';
 // import User from '../models/userSchema';
-import Post from '../models/postSchema'
+import Post from '../models/postSchema.js';
+
 // get ... read all
 // const getPosts = (req,res) => {
 //     return res.send('baseic')
@@ -24,9 +25,10 @@ export const getPosts = async (req, res) => {
 // get ... read a single post
 export const getPost = async (req,res) => {
     try {
-        const {id} = req.prams;
-        const post = await Post.find(id);
-        res.status.json(post);
+        console.log(req.params)
+        const {id} = req.params;
+        const post = await Post.findById(id);
+        res.status(200).json(post);
     } catch (error) {
         res.status(404).json({message: error.message})
     }
@@ -35,13 +37,14 @@ export const getPost = async (req,res) => {
 
 export const createPost = async (req,res) => {
     const {title, body, file, username,tags} = req.body
-    const post = new Post({
+    const newPost = new Post({
         title,body,file,username,tags
     })
-
+    console.log(req.body);
+    // add this new post to db.
     try {
-        await post.save();
-        res.status(201).json(newPostMessage );
+        await newPost.save();
+        res.status(201).json(newPost);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
