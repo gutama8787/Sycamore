@@ -22,7 +22,9 @@ export const getPosts = async (req, res) => {
 }
 
 
+
 // get ... read a single post
+
 export const getPost = async (req,res) => {
     try {
         console.log(req.params)

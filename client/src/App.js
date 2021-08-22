@@ -4,12 +4,13 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    Redirect
 } from "react-router-dom";
 import Ask from './components/Forms/Ask/Ask';
 import Post from './components/Posts/Post/Post';
 import Posts from './components/Posts/Posts';
+import Signup from './components/Forms/Login/Signup';
+import Login from './components/Forms/Login/Login';
+
 /* 
 [X] There should be a header. -static
 [X]  - The website name
@@ -21,9 +22,9 @@ import Posts from './components/Posts/Posts';
 [x]  Upload to git hub
 [x]    - add a .env file
 [x]    - init git localy and push remotly 
-[]  Complete form
-[]    - make sure the form is saved onto redux store
-[]    - make sure the from is saved onto a database 
+[x]  Complete form
+[x]    - make sure the form is saved onto redux store
+[x]    - make sure the from is saved onto a database 
  
 */
 
@@ -45,6 +46,8 @@ function App() {
                     <Route exact path="/posts/:postId" component={Post} />
                     <Route exact path="/ask" component={Ask} />
                     {/* <Redirect to="/" /> */}
+                    <Route exact path="/signup" component={Signup}/>
+                    <Route exact path="/login" component={Login}/>
                 </Switch>
             </Router>
         </div>
