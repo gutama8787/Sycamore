@@ -8,8 +8,9 @@ import {
 import Ask from './components/Forms/Ask/Ask';
 import Post from './components/Posts/Post/Post';
 import Posts from './components/Posts/Posts';
-import Signup from './components/Forms/Login/Signup';
+import Signup from './components/Forms/Signup/Signup';
 import Login from './components/Forms/Login/Login';
+import UsersList from './components/Users/UsersList';
 
 /* 
 [X] There should be a header. -static
@@ -48,6 +49,7 @@ function App() {
                     {/* <Redirect to="/" /> */}
                     <Route exact path="/signup" component={Signup}/>
                     <Route exact path="/login" component={Login}/>
+                    <Route exact path = "/users" component={UsersList}/>
                 </Switch>
             </Router>
         </div>

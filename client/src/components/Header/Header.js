@@ -35,6 +35,13 @@ export default function Header() {
                             </Link>
                         </Typography>
 
+                        
+                        <Button color="inherit" >
+                            <Link to="/users"  style={{ textDecoration: 'none', color:'white' }}>
+                                User list
+                            </Link>
+                        </Button>
+
                         <Button color="inherit" >
                             <Link to="/ask"  style={{ textDecoration: 'none', color:'white' }}>
                                 Ask

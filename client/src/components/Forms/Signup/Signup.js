@@ -1,7 +1,7 @@
 import Reac,{useState} from "react";
 import { Button, Grid, TextField } from "@material-ui/core";
-
-
+import { useDispatch } from "react-redux";
+import { createUser } from "../../../reducers/userSlice";
 const Signup = () => {
   const initialState = {
     username: '',
@@ -11,11 +11,16 @@ const Signup = () => {
   }
 
   const [user, setUser] = useState(initialState)
+  const dispatch = useDispatch()
   const handleSubmit = (e) => {
     if (user.conf_password !== user.password) {
       alert("re-enter password!")
     }
+    else {
+      dispatch(createUser(user))
+    }
     e.preventDefault()
+    console.log(user)
   }
   return (
     <form onSubmit={e=>
@@ -49,7 +54,7 @@ const Signup = () => {
           autoComplete="email"
           autoFocus
           onChange={(e)=>{
-            setUser({...user, password: e.target.value})
+            setUser({...user, email: e.target.value})
           }}
         />
         <TextField
