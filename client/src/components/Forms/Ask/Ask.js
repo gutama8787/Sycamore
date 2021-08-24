@@ -22,7 +22,8 @@ const Ask = ()=> {
 
     const intialState = {
         title: '', body: '', tags: '', file: '' };
-
+    let store_post = {
+      id: '', title: '', body: '', tags: '', file: '' };
     const [post, setPost] = useState(intialState);
     const [sub, setSub] = useState(false);
 
@@ -40,7 +41,8 @@ const Ask = ()=> {
         };
         // createPost is the action. 
         // newPOst is the payload. 
-        dispatch(createPost(newPost));
+        const sp = {...newPost,_id:nanoid()}
+        dispatch(createPost(sp));
         postPost(newPost)
         setSub(true)
         history.push("/")

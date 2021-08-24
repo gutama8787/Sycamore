@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
 }));
-const lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+// const lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
 const PostPreview = (props) => {
     const classes = useStyles();
     const { state } = props;
@@ -39,9 +39,9 @@ const PostPreview = (props) => {
                     {state.title}
                 </Typography>
                 <Typography variant="body1">
-                    {state.content}
+                    {state.body}
                 </Typography>
-                <Link to={`posts/${state.title}`} onClick={e=>console.log(`${state.title}`)}>
+                <Link to={`posts/${state._id}`} onClick={e=>console.log(`${state.title}`)}>
                     <p>Read more</p>
                 </Link>
             </Paper>

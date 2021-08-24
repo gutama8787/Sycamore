@@ -35,7 +35,9 @@ import {allPosts} from './reducers/postSlice'
 
 function App() {
     const dispatch = useDispatch();
-    dispatch(allPosts())
+    useEffect(()=>{
+        dispatch(allPosts())
+    })
         
     return (
         <div>

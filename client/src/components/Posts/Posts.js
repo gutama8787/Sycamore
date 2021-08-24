@@ -10,24 +10,24 @@ import { Paper, Typography } from '@material-ui/core';
 export default function Posts() {
   const classes = useStyles();
   const posts = useSelector(state => state.posts)
- const [dump, setdump] = useState('')
+ // const [dump, setdump] = useState('')
   // make an api call
  
 
-  useEffect(()=>{
-    axios.get('http://localhost:5000/posts').then(response => {
-      setdump(response.data[0].body);
-      console.log(response.data)
-    })
-  })
-  console.log(posts)
+  // useEffect(()=>{
+  //   axios.get('http://localhost:5000/posts').then(response => {
+  //     setdump(response.data[0].body);
+  //     console.log(response.data)
+  //   })
+  // })
+  // console.log(posts)
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
         
           {posts.map(post=>(<PostPreview key={post._id} state={post}/>))}
       </Grid>
-      {dump}
+      {/*dump*/}
     </div>
   );
 }

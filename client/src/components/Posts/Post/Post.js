@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-
+import { useSelector } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -19,15 +19,19 @@ const Post = ({match}) => {
     const classes = useStyles();
     console.log(match)
     const {postId} = match.params
+
+    // setup content
+    const post = useSelector(state => state.posts.find( ({ _id }) => _id === postId ))
+
     return (
             <Grid item xs={12} fullWidth container justifyContent="center">
                 <Paper className={classes.paper}>
                     <Typography variant="h6">
                     </Typography>
                     <Typography variant="body1">
-                        {postId}
+                        {post.title}
                         <hr></hr>
-                        {lorem}
+                        {post.body}
                     </Typography>
                 </Paper>
             </Grid>
