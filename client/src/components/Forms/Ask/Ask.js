@@ -10,6 +10,7 @@ import {useDispatch} from 'react-redux'
 import { createPost } from '../../../reducers/postSlice';
 import { nanoid } from '@reduxjs/toolkit';
 import {useHistory} from 'react-router-dom';
+import { postPost } from '../../../app/api';
 // redux
 // import useDispatch. - when submit happens we dispatch to store.
 
@@ -40,6 +41,7 @@ const Ask = ()=> {
         // createPost is the action. 
         // newPOst is the payload. 
         dispatch(createPost(newPost));
+        postPost(newPost)
         setSub(true)
         history.push("/")
     };

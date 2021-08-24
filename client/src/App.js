@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Header from './components/Header/Header'
 import {
     BrowserRouter as Router,
@@ -11,7 +11,11 @@ import Posts from './components/Posts/Posts';
 import Signup from './components/Forms/Signup/Signup';
 import Login from './components/Forms/Login/Login';
 import UsersList from './components/Users/UsersList';
-
+import {data} from './app/api'
+import {useDispatch} from 'react-redux'
+import {getPosts} from './reducers/postSlice'
+import {createPost} from './reducers/postSlice'
+import {allPosts} from './reducers/postSlice'
 /* 
 [X] There should be a header. -static
 [X]  - The website name
@@ -30,6 +34,9 @@ import UsersList from './components/Users/UsersList';
 */
 
 function App() {
+    const dispatch = useDispatch();
+    dispatch(allPosts())
+        
     return (
         <div>
             <Router>

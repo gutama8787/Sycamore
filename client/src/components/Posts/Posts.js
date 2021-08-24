@@ -20,7 +20,7 @@ export default function Posts() {
       console.log(response.data)
     })
   })
-
+  console.log(posts)
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">

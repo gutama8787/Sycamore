@@ -1,6 +1,10 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
+import { fetchPosts } from '../app/api'
+import axios from 'axios'
+
+const url = " http://localhost:5000"
 
 
 const initialState = [{"tags":["Ford","BMW","Fiat"],"likeCount":0,"createdAt":"2021-08-13T18:20:54.970Z","_id":"6116b81391864a0f92f7da4a",
@@ -12,15 +16,29 @@ const initialState = [{"tags":["Ford","BMW","Fiat"],"likeCount":0,"createdAt":"2
 
 const postsSlice = createSlice({
   name: 'posts',
-  initialState,
+  initialState: [],
   reducers: {
     createPost(state,action) {
       state.push(action.payload)
+    },
+    getPosts(state,action) {
+      // state.push(action.payload[0])
+      action.payload.map(x => state.push(x))
     }
   }
 })
+
+
+
 const postReducer = postsSlice.reducer
-console.log(postsSlice.reducer)
-export const {createPost } = postsSlice.actions
+// console.log(postsSlice.reducer)
+export const {createPost,getPosts } = postsSlice.actions
+
+export const allPosts =  () => async dispatch => {
+  const {data} = await  axios.get(`${url}/posts`);
+  console.log(data)
+  dispatch(getPosts(data))
+}
+
 
 export default postReducer
