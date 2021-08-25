@@ -16,6 +16,7 @@ import {useDispatch} from 'react-redux'
 import {getPosts} from './reducers/postSlice'
 import {createPost} from './reducers/postSlice'
 import {allPosts} from './reducers/postSlice'
+
 /* 
 [X] There should be a header. -static
 [X]  - The website name
