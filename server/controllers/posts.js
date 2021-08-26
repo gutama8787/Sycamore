@@ -27,7 +27,6 @@ export const getPosts = async (req, res) => {
 
 export const getPost = async (req,res) => {
     try {
-        console.log(req.params)
         const {id} = req.params;
         const post = await Post.findById(id);
         res.status(200).json(post);
@@ -42,7 +41,6 @@ export const createPost = async (req,res) => {
     const newPost = new Post({
         title,body,file,username,tags
     })
-    console.log(req.body);
     // add this new post to db.
     try {
         await newPost.save();

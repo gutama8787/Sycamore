@@ -35,13 +35,11 @@ const postsSlice = createSlice({
 
 
 const postReducer = postsSlice.reducer
-// console.log(postsSlice.reducer)
 export const {createPost,getPosts,clearAllPosts} = postsSlice.actions
 
 export const allPosts =  () => async dispatch => {
   const {data} = await  axios.get(`${url}/posts`);
   console.log(data)
-  // dispatch(clearAllPosts())
   dispatch(getPosts(data))
 }
 

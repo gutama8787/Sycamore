@@ -18,15 +18,9 @@ const useStyles = makeStyles((theme) => ({
 const lorem = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
 const Post = ({match}) => {
     const classes = useStyles();
-    console.log(match)
     const {postId} = match.params
-    console.log("post.js 23",postId)
     // setup content
-    const posts = useSelector(state=>state.posts)
-    console.log("post.js 25 ",posts.find( ({ _id }) => _id === postId ))
-
     const post = useSelector(state => state.posts.find( ({ _id }) => _id === postId ))
-    console.log(match.params)
     return (
             <Grid xs={12} fullWidth container justifyContent="center">
                 <Paper className={classes.paper}>
