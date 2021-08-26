@@ -20,8 +20,11 @@ const Post = ({match}) => {
     const classes = useStyles();
     console.log(match)
     const {postId} = match.params
-
+    console.log("post.js 23",postId)
     // setup content
+    const posts = useSelector(state=>state.posts)
+    console.log("post.js 25 ",posts.find( ({ _id }) => _id === postId ))
+
     const post = useSelector(state => state.posts.find( ({ _id }) => _id === postId ))
     console.log(match.params)
     return (
@@ -30,9 +33,9 @@ const Post = ({match}) => {
                     <Typography variant="h6">
                     </Typography>
                     <Typography variant="body1">
-                        {post.title}
+                        {post?post.title : "error"}
                         <hr></hr>
-                        {post.body}
+                        {post?post.body:"error body"}
                     </Typography>
                 </Paper>
             </Grid>

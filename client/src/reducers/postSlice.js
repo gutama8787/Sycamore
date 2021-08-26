@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { fetchPosts } from '../app/api'
 import axios from 'axios'
+import storage from 'redux-persist/lib/storage'
 
 const url = " http://localhost:5000"
 
@@ -24,6 +25,9 @@ const postsSlice = createSlice({
     getPosts(state,action) {
       // state.push(action.payload[0])
       action.payload.map(x => state.push(x))
+    },
+    clearAllPosts() {
+
     }
   }
 })
@@ -32,11 +36,12 @@ const postsSlice = createSlice({
 
 const postReducer = postsSlice.reducer
 // console.log(postsSlice.reducer)
-export const {createPost,getPosts } = postsSlice.actions
+export const {createPost,getPosts,clearAllPosts} = postsSlice.actions
 
 export const allPosts =  () => async dispatch => {
   const {data} = await  axios.get(`${url}/posts`);
   console.log(data)
+  // dispatch(clearAllPosts())
   dispatch(getPosts(data))
 }
 
