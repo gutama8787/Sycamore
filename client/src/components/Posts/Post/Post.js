@@ -41,9 +41,6 @@ const Post = ({ match }) => {
             {post ? post.title : "error"}
         </Typography>
         <hr></hr>
-        {/* <Typography variant="body1">
-          {post ? post.body : "error body"}
-        </Typography> */}
         <ReactMarkdown children={post ? post.body : "error body"} remarkPlugins={[remarkGfm]} />,
       </Paper>
     </Grid>
