@@ -5,6 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import Post from './Post';
 import Ask from '../../Forms/Ask/Ask';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(4),
-        textAlign: 'center',
+        textAlign: 'left',
         margin: theme.spacing(2)
         // color: theme.palette.text.secondary,
     },
@@ -44,9 +47,7 @@ const PostPreview = (props) => {
                     {state.title}
                 </Typography>
                 <hr></hr>
-                <Typography variant="body1">
-                    {state.body.substring(0,1000)}
-                </Typography>
+                <ReactMarkdown children={state.body.substring(0,500)} remarkPlugins={[remarkGfm]} />,
                 <Link to={`posts/${state._id}`} onClick={e=>console.log(`${state.title}`)}>
                     <p>Read more</p>
                 </Link>

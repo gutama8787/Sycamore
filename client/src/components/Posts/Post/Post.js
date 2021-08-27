@@ -4,13 +4,16 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: "center",
+    textAlign: "left",
     // color: theme.palette.text.secondary,
     width: `70%`,
     margin: theme.spacing(2)
@@ -38,9 +41,10 @@ const Post = ({ match }) => {
             {post ? post.title : "error"}
         </Typography>
         <hr></hr>
-        <Typography variant="body1">
+        {/* <Typography variant="body1">
           {post ? post.body : "error body"}
-        </Typography>
+        </Typography> */}
+        <ReactMarkdown children={post ? post.body : "error body"} remarkPlugins={[remarkGfm]} />,
       </Paper>
     </Grid>
   );
